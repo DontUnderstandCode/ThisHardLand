@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public bool hasrot;
-
-    public float whichWay;
+    public Vector3 playerCoord;
 
 }

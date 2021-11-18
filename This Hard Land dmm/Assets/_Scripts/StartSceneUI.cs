@@ -13,7 +13,7 @@ public class StartSceneUI : MonoBehaviour
 
     public void LoadMain()
     {
-        SceneManager.LoadScene("002MainScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("003TestScene", LoadSceneMode.Single);
     }
 
     // Update is called once per frame

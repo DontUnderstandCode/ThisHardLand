@@ -14,14 +14,16 @@ public class FollowPlayer : MonoBehaviour
         pmManage = gameManager.GetComponent<PlayerManager>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         playerCoord = pmManage.playerCoord;
-        float coordY = playerCoord.y;
+        float coordY = playerCoord.y - 1;
         float coordZ = playerCoord.z;
-        print(coordY);
-        print(coordZ);
-        transform.position.Set(0, coordY, coordZ);
+        Vector3 followCoord = new Vector3();
+        followCoord.Set(0, coordY, coordZ);
+        transform.position = followCoord;
+
+  
     }
 
 

@@ -45,7 +45,6 @@ public class VectorUpdate : MonoBehaviour  //The purpose of this script is to se
         {
             pmManage.playerXDir = false;
         }
-    print(pmManage.playerXDir);
     }
 
 

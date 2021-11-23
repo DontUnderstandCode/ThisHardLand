@@ -28,26 +28,30 @@ public class LeftRightMove : MonoBehaviour
     void SpeedSetA()
     {
         posMinus = pmManage.posMinus;
+        pmManage.isRunningLeft = true;
+        
         if(posMinus)
         {
-            speed = -5 * Time.deltaTime;
+            speed = -3 * Time.deltaTime;
         }
         else if(!posMinus)
         {
-            speed = 5 * Time.deltaTime;
+            speed = 3 * Time.deltaTime;
         }
     }
 
         void SpeedSetD()
     {
         posMinus = pmManage.posMinus;
+        pmManage.isRunningRight = true;
+
         if(posMinus)
         {
-            speed = 5 * Time.deltaTime;
+            speed = 3 * Time.deltaTime;
         }
         else if(!posMinus)
         {
-            speed = -5 * Time.deltaTime;    //Both speedset functions check which side of the puzzle the player is on and set the speed accordingly. Basically it reverses the movement speed on the "negative" side of the board
+            speed = -3 * Time.deltaTime;    //Both speedset functions check which side of the puzzle the player is on and set the speed accordingly. Basically it reverses the movement speed on the "negative" side of the board
         }
     }
 
@@ -67,6 +71,11 @@ public class LeftRightMove : MonoBehaviour
         {
             SpeedSetD();
             MovePlayer();
+        }
+        else
+        {
+            pmManage.isRunningLeft = false;
+            pmManage.isRunningRight = false;
         }
 
         

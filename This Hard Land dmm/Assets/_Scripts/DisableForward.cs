@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DisableForward : MonoBehaviour
 {
-    GameObject player;
+    GameObject playerGP;
     GameObject gameManager;
 
     ForwardBack forwardBack;
@@ -13,8 +13,8 @@ public class DisableForward : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-        forwardBack = player.GetComponent<ForwardBack>();
+        playerGP = GameObject.Find("PlayerGlobalParent");
+        forwardBack = playerGP.GetComponent<ForwardBack>();
         gameManager = GameObject.Find("GameManager");
         pmManage = gameManager.GetComponent<PlayerManager>();
     }

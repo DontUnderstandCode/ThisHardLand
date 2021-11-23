@@ -2,37 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForwardBack : MonoBehaviour
-{
-   private float speed;
+public class ForwardBack : MonoBehaviour   //This script organises and starts the animation tha tmoves the player from one side of theboard to another 
+{                                          //It is attatched to the player global parent to allow it to move forward and backward, up or down without having to
+                                           //Worry about the players position left or right
+
+    Animator globalAnim;
+
+    GameObject johnChild;
+    Animator charAnim;
+
+    GameObject gameManager;
+    PlayerManager pmManage;
+
+    bool posMinus;
+
+    bool canFordsBack;
+
+   
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0;
+        globalAnim = GetComponent<Animator>();
+
+        johnChild = GameObject.Find("Lost John");
+        charAnim = johnChild.GetComponent<Animator>();    //Getting the Actual players mesh which the bone animator sits on.
+
+        gameManager = GameObject.Find("GameManager");
+        pmManage = gameManager.GetComponent<PlayerManager>();
     }
 
-    void MoveForward()
-    {
-        transform.Translate(speed, 0, 0);
-    }
-
-    void MoveBack()
-    {
-        transform.Translate(speed, 0, 0);
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        posMinus = pmManage.posMinus;
+
+        canFordsBack = pmManage.canFordsBack;
+        if(Input.GetKeyDown(KeyCode.W))
         {
-            speed = -5 * Time.deltaTime;
-            MoveForward();
+            if (posMinus)
+            {
+                charAnim.SetTrigger("crossSide1");
+                globalAnim.SetTrigger("playerCross1");
+
+            }
+            else if(!posMinus)
+            {
+                charAnim.SetTrigger("crossSide2");
+                globalAnim.SetTrigger("playerCross2");
+            }
+            
         }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            speed = 5 * Time.deltaTime;
-            MoveBack();
-        }
+      
     }
 }

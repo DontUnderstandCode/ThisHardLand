@@ -63,9 +63,9 @@ public class LeftRightMove : MonoBehaviour
         }
     }
 
-    void DistanceMeasure()              //A method that measures how far the player has travelled in the Z direction in any one movement cycle. Uses as the input for the Exponential equation that defines player speed.
+    void DistanceMeasure()              //A method that measures how far the player has travelled in the Z direction in any one movement cycle. Used as the input for the Exponential equation that defines player speed.
     {
-        distance = distance + (playerZ2 - playerZ1);
+        distance = distance + (playerZ2 - playerZ1);   
         SpeedCalculate();                              //The next function to calculate the proper speed is then called
     }
 
@@ -73,7 +73,7 @@ public class LeftRightMove : MonoBehaviour
     {   
         float distZ = (distance * distance);       //The distance calculated in the previous method can be negative or positive so this must be made positive in all cases before it's used
         distZ = Mathf.Sqrt(distZ);
-        speed = (-2.8f) * Mathf.Pow(9, (-2 * distZ)) +3;            //This is the actual function, setting a speped that increases rapidly from 0 to a max of 3.
+        speed = (-2.8f) * Mathf.Pow(6, (-2 * distZ)) +3;            //This is the actual function, setting a speed that increases rapidly from 0 to a max of 3.
         speed = speed * Time.deltaTime;
     }
 

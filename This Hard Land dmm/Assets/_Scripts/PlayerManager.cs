@@ -18,5 +18,8 @@ public class PlayerManager : MonoBehaviour
 
 
 
+    public bool doMoveUp;
+
+
 
 }

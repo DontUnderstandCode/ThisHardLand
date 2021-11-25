@@ -73,8 +73,8 @@ public class LeftRightMove : MonoBehaviour
     {   
         float distZ = (distance * distance);       //The distance calculated in the previous method can be negative or positive so this must be made positive in all cases before it's used
         distZ = Mathf.Sqrt(distZ);
-        speed = (-2.8f) * Mathf.Pow(6, (-2 * distZ)) +3;            //This is the actual function, setting a speed that increases rapidly from 0 to a max of 3.
-        speed = speed * Time.deltaTime;
+        speed = (-2.9f) * Mathf.Pow(8, (-2 * distZ)) +3;            //This is the actual function, setting a speed that increases rapidly from just above zero to a max of 3.
+        speed = speed * Time.deltaTime;                             //the actual start speed
     }
 
 

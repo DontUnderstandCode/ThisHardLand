@@ -37,15 +37,18 @@ public class ClimbUpStop : MonoBehaviour
 
     void OnTriggerEnter()
     {
-
         pmManage.shouldClimb = false;
+        pmManage.doClimb = false;
         charAnim.SetTrigger("jump2Top1");
     }
 
     void MoveToLevel()
     {
+        player.transform.position = trggrCoord;
+        charModel.transform.position = player.transform.position;
+        pmManage.shdMoveTop = false;
   
-        player.transform.position = Vector3.MoveTowards(playerCoord, trggrCoord, 0.03f);
+        //player.transform.position = Vector3.MoveTowards(playerCoord, trggrCoord, 0.03f);
         
     }
 

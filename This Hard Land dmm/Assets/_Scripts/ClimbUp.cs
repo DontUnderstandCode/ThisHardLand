@@ -17,6 +17,7 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
 /////////////////////////////// _ This section is for the variables that help in aligning the player to the climb object.
 
     bool shouldClimb = false;
+    bool doClimb;
 
     
 
@@ -36,32 +37,33 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
 
     }
 
-    private void OnTriggerStay(Collider climbUp)         //Thisis the bit that sets the climb sequence in motion
+    private void OnTriggerEnter(Collider climbUp)         //Thisis the bit that sets the climb sequence in motion  //OnTrigger enter climbable
     {
         if (climbUp.gameObject.name == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.E))                //When E is pressed
-            {
-                charAnim.SetTrigger("climbTurn1");          //Start teh character model animations equence
-            } 
-            
-           
-            PLRClimb();           //While within the colider check if supposed to be aligning and if so do
+            pmManage.shouldClimb = true;
         }
     }
 
-
+    void PLRStartClimb()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            charAnim.SetTrigger("climbTurn1");  
+        }
+    }
 
     void PLRClimb()         //Checks whether the player should be climbing and if so, moves them into the correct position in time with the character animation and then moves them up.
     {
-        Vector3 colldrCoord = transform.position;
+       
+
+        if(doClimb)
+        {
+             Vector3 colldrCoord = transform.position;
         Vector3 playerCoord = pmManage.playerCoord;
         float playerZ = playerCoord.z;
         float colldrZ = colldrCoord.z;
         float diffZ = colldrZ - playerZ;
-
-        if(shouldClimb)
-        {
             if(diffZ != 0)
             {
                 player.transform.position = Vector3.MoveTowards(playerCoord, colldrCoord, 0.05f);   //Thanks to AlexKelly on unity answers for posting this MoveToward function as an asnswer
@@ -83,6 +85,25 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
     void Update()
     {
         shouldClimb = pmManage.shouldClimb;
+        doClimb = pmManage.doClimb;
+
+
+        
+        if(shouldClimb)
+        {
+            if(doClimb)
+            {
+                PLRClimb();
+            }
+            else if(!doClimb)
+            {
+                PLRStartClimb();
+            }
+         
+            
+
+        }
+        
 
 
 

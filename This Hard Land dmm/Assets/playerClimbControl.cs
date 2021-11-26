@@ -15,17 +15,14 @@ public class playerClimbControl : MonoBehaviour
 
     void UpdateClimbBool()
     {
-        pmManage.shouldClimb = true;
+        pmManage.doClimb = true;
+        
     }
 
-    void UpdateClimbStartJump()
+    void UpdateEndOfJump()
     {
         pmManage.shdMoveTop = true;
     }
 
-    void UpdateClimbStopJump()
-    {
-        pmManage.shdMoveTop = false;
-    }
 
 }

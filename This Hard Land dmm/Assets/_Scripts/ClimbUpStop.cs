@@ -15,6 +15,7 @@ public class ClimbUpStop : MonoBehaviour
 
     Vector3 playerCoord;
     Vector3 trggrCoord;
+    Vector3 charCoord;
 
     bool shdMoveTop;
 
@@ -42,26 +43,30 @@ public class ClimbUpStop : MonoBehaviour
         charAnim.SetTrigger("jump2Top1");
     }
 
-    void MoveToLevel()
-    {
-        player.transform.position = trggrCoord;
-        charModel.transform.position = player.transform.position;
-        pmManage.shdMoveTop = false;
-  
-        //player.transform.position = Vector3.MoveTowards(playerCoord, trggrCoord, 0.03f);
-        
-    }
-
 
     void Update()
     {
         playerCoord = pmManage.playerCoord;
+        charCoord = charModel.transform.position;
         shdMoveTop = pmManage.shdMoveTop;
 
+        
         if(shdMoveTop)
         {
             MoveToLevel();
         }
     }
+
+    void MoveToLevel()
+    {
+
+        player.transform.position = trggrCoord;
+
+        pmManage.shdMoveTop = false;
+
+        
+
+    }
+
 }
 

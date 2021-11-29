@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour              //This script is used as a publicly accesable repository of player position and movement information for use between interacting scripts
-{
+{s
+
+    public Vector3 charCoord; //This realtes to the player model position and is used to track the camera
     
-    
-    //////////////////////////////////////-Below are some variables relating to the characters position and whether and where they can move
+    //////////////////////////////////////-Below are some variables relating to the characters parent position and whether and where they can move
     public Vector3 playerCoord;
 
     public bool canFordsBack;       //This is true when the character is at the entrance to a tunnel, if true the character can move through the tunnel

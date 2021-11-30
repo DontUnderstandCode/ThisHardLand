@@ -8,6 +8,7 @@ public class playerClimbControl : MonoBehaviour      //This script contains meth
     PlayerManager pmManage;
 
     GameObject player;
+    LeftRightMove lrMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,7 @@ public class playerClimbControl : MonoBehaviour      //This script contains meth
         pmManage = gameManager.GetComponent<PlayerManager>();
 
         player = GameObject.Find("Player");
+        lrMove = player.GetComponent<LeftRightMove>();
     }
 
     void UpdateClimbBool()
@@ -23,20 +25,16 @@ public class playerClimbControl : MonoBehaviour      //This script contains meth
         
     }
 
-    void UpdateEndOfJump()
+    void UpdateLeftRightEnable()
     {
-        pmManage.shdMoveTop = true;
+        lrMove.enabled = true;
     }
 
-    void ResetParentDown()
-    {
-        Transform playerTrs = player.transform;
-        transform.SetParent(playerTrs, false);
-        player.transform.position = transform.position;
-        transform.SetParent(playerTrs, true);
-        pmManage.canJumpDown = false;
-
-    }
 
 
 }
+
+
+
+
+

@@ -26,11 +26,11 @@ public class PlayerManager : MonoBehaviour              //This script is used as
 
 //////////////////////////////////////-Below are bool switches related to the character climbing sequence
     public bool shouldClimb; 
-    public bool stopClimb;
-    public bool shdMoveTop;
-    public bool doClimb;
-    public bool canJumpDown;
+    public bool doClimb;         //Up
 
+
+    public bool shouldClimbDown;      //Down
+    public bool doClimbDown;
 
 
 }

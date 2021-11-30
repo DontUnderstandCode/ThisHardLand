@@ -11,6 +11,7 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
 
 /////////////////////////////////
     GameObject player;
+    LeftRightMove lrMove;
 //////////////////////////////////////
     GameObject charModel;
     Animator charAnim;
@@ -19,14 +20,13 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
     bool shouldClimb = false;
     bool doClimb;
 
-    
-
-
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.Find("Player");
+        lrMove = player.GetComponent<LeftRightMove>();
+
 
         gameManager = GameObject.Find("GameManager");
         pmManage = gameManager.GetComponent<PlayerManager>();
@@ -45,10 +45,18 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
         }
     }
 
+    private void OnTriggerExit()
+    {
+        pmManage.shouldClimb = false;
+        pmManage.doClimb = false;
+        charAnim.SetTrigger("jump2Top1");
+    }
+
     void PLRStartClimb()
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
+            lrMove.enabled = false;
             charAnim.SetTrigger("climbTurn1");  
         }
     }
@@ -59,20 +67,11 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
 
         if(doClimb)
         {
-             Vector3 colldrCoord = transform.position;
-        Vector3 playerCoord = pmManage.playerCoord;
-        float playerZ = playerCoord.z;
-        float colldrZ = colldrCoord.z;
-        float diffZ = colldrZ - playerZ;
-            if(diffZ != 0)
-            {
-                player.transform.position = Vector3.MoveTowards(playerCoord, colldrCoord, 0.05f);   //Thanks to AlexKelly on unity answers for posting this MoveToward function as an asnswer
-            }
-
-            else if(diffZ == 0)
-            {
-                player.transform.Translate(0, 1f * Time.deltaTime, 0);     
-            }
+        
+        
+          
+            player.transform.Translate(0, 1f * Time.deltaTime, 0);     
+        
 
                        
         }

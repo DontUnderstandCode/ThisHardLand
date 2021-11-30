@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour              //This script is used as a publicly accesable repository of player position and movement information for use between interacting scripts
-{s
+{
 
     public Vector3 charCoord; //This realtes to the player model position and is used to track the camera
     
@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour              //This script is used as
     public bool stopClimb;
     public bool shdMoveTop;
     public bool doClimb;
+    public bool canJumpDown;
 
 
 

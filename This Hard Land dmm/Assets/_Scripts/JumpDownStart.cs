@@ -25,14 +25,14 @@ public class JumpDownStart : MonoBehaviour
     {
         if(jmpDown.gameObject.name == "Player")
         {
-            canJumpDown = true;
+            pmManage.canJumpDown = true;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        canJumpDown = pmManage.canJumpDown;   
         if(canJumpDown)
         {
             JumpDown();
@@ -41,10 +41,13 @@ public class JumpDownStart : MonoBehaviour
 
     void JumpDown()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            print("working");
+        if(Input.GetKeyDown(KeyCode.E))
+        {   
             charAnim.SetTrigger("jumpDown1");
+
         }
+        
+            
+
     }
 }

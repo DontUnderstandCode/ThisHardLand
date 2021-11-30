@@ -31,9 +31,10 @@ public class playerClimbControl : MonoBehaviour      //This script contains meth
     void ResetParentDown()
     {
         Transform playerTrs = player.transform;
-        transform.parent = null;
+        transform.SetParent(playerTrs, false);
         player.transform.position = transform.position;
         transform.SetParent(playerTrs, true);
+        pmManage.canJumpDown = false;
 
     }
 

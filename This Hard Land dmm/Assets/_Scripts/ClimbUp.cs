@@ -15,10 +15,13 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
 //////////////////////////////////////
     GameObject charModel;
     Animator charAnim;
-/////////////////////////////// _ This section is for the variables that help in aligning the player to the climb object.
+    /////////////////////////////// _ This section is for the variables that help in aligning the player to the climb object.
 
     bool shouldClimb = false;
-    bool doClimb;
+    bool doClimbUp;
+
+    float colldrY;        //Used to tell the player object to stop moving up.
+    float plrY;
 
 
     // Start is called before the first frame update
@@ -34,7 +37,7 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
         charModel = GameObject.Find("Lost John");
         charAnim = charModel.GetComponent<Animator>();
 
-
+        
     }
 
     private void OnTriggerEnter(Collider climbUp)         //Thisis the bit that sets the climb sequence in motion  //OnTrigger enter climbable
@@ -45,37 +48,37 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
         }
     }
 
-    private void OnTriggerExit()
+    private void OnTriggerExit(Collider climbUpOut)
     {
         pmManage.shouldClimb = false;
-        pmManage.doClimb = false;
-        charAnim.SetTrigger("jump2Top1");
     }
+
+
 
     void PLRStartClimb()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             lrMove.enabled = false;
-            charAnim.SetTrigger("climbTurn1");  
+            charAnim.SetTrigger("climbTurn1");
+            colldrY = transform.position.y;
         }
     }
 
     void PLRClimb()         //Checks whether the player should be climbing and if so, moves them into the correct position in time with the character animation and then moves them up.
     {
-       
-
-        if(doClimb)
+     
+        plrY = player.transform.position.y;
+        if(plrY  < colldrY)
         {
-        
-        
-          
-            player.transform.Translate(0, 1f * Time.deltaTime, 0);     
-        
-
-                       
+            player.transform.Translate(0, 1f * Time.deltaTime, 0);
         }
-        
+        else if(plrY > colldrY)
+        {
+            pmManage.shouldClimb = false;
+            pmManage.doClimbUp = false;
+            charAnim.SetTrigger("jump2Top1");
+        }  
     }
 
 
@@ -84,27 +87,21 @@ public class ClimbUp : MonoBehaviour     //This script checks whether the player
     void Update()
     {
         shouldClimb = pmManage.shouldClimb;
-        doClimb = pmManage.doClimb;
+        doClimbUp = pmManage.doClimbUp;
 
 
-        
-        if(shouldClimb)
+
+        if (shouldClimb)
         {
-            if(doClimb)
-            {
-                PLRClimb();
-            }
-            else if(!doClimb)
-            {
-                PLRStartClimb();
-            }
-         
-            
+
+
+            PLRStartClimb();
 
         }
-        
-
-
+        if(doClimbUp)
+        {
+                PLRClimb();
+        }
 
 
         

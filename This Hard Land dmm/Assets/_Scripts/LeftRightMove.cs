@@ -13,6 +13,7 @@ public class LeftRightMove : MonoBehaviour
     
     
     private float speed;   //This will hold the speed value of the player and will be set according to an exponential function and the players position
+    private float setSpeed;
 
     bool posMinus;  //This is just the x value of the player transform to check what side of the board they are on
 
@@ -28,7 +29,7 @@ public class LeftRightMove : MonoBehaviour
 
     void MovePlayer()
     {
-        transform.Translate(0, 0, speed);      //This is the method that moves the player according to the speed decided in the following functions
+        transform.Translate(0, 0, setSpeed);      //This is the method that moves the player according to the speed decided in the following functions
     }
 
 
@@ -40,11 +41,11 @@ public class LeftRightMove : MonoBehaviour
         
         if(posMinus)
         {
-            speed = -1 * speed; 
+            setSpeed = -1 * speed; 
         }
         else if(!posMinus)
         {
-            speed = speed; 
+            setSpeed = speed; 
         }
     }
 
@@ -55,11 +56,11 @@ public class LeftRightMove : MonoBehaviour
 
         if(posMinus)
         {
-            speed = speed; 
+            setSpeed = speed; 
         }
         else if(!posMinus)
         {
-            speed = -1 * speed;   //Both speedset functions check which side of the puzzle the player is on and set the speed accordingly. Basically it reverses the movement speed on the "negative" side of the board
+            setSpeed = -1 * speed;   //Both speedset functions check which side of the puzzle the player is on and set the speed accordingly. Basically it reverses the movement speed on the "negative" side of the board
         }
     }
 
@@ -77,6 +78,8 @@ public class LeftRightMove : MonoBehaviour
         speed = speed * Time.deltaTime;                             //the actual start speed
     }
 
+   
+
 
 
     // Update is called once per frame
@@ -89,6 +92,7 @@ public class LeftRightMove : MonoBehaviour
             DistanceMeasure();
             SpeedSetA();
             MovePlayer();
+
         }
         else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))   //Checks whether the left or right button is pressed and uses the logic in the "speedset" methods to decide which way to go
         {                                                               //The extra condition is used to make the system more robust and stop you form running th ewrong way

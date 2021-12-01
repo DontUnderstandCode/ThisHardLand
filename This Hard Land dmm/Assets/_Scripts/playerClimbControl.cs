@@ -21,13 +21,17 @@ public class playerClimbControl : MonoBehaviour      //This script contains meth
 
     void UpdateClimbBool()
     {
-        pmManage.doClimb = true;
-        
+        pmManage.doClimbUp = true;
     }
 
     void UpdateLeftRightEnable()
     {
         lrMove.enabled = true;
+    }
+
+    void UpdateClimbDownBool()
+    {
+        pmManage.doClimbDown = true;
     }
 
 

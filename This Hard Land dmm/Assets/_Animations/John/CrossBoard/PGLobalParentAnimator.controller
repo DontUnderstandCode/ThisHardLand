@@ -85,7 +85,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: playerCross2
+    m_ConditionEvent: playerCrossB
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6723119871091363139}
@@ -110,24 +110,18 @@ AnimatorController:
   m_Name: PGLobalParentAnimator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: playerCross1
+  - m_Name: playerCrossA
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: playerCross2
+    m_Controller: {fileID: 0}
+  - m_Name: playerCrossB
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: playerClimbUp1
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -150,7 +144,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: playerCross1
+    m_ConditionEvent: playerCrossA
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6849149857626653773}
@@ -181,8 +175,8 @@ AnimatorStateTransition:
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0
-  m_TransitionOffset: 0.2404765
-  m_ExitTime: 0.99047625
+  m_TransitionOffset: 0
+  m_ExitTime: 0.9998439
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

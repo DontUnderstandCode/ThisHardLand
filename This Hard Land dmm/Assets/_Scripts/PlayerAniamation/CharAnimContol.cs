@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharAnimContol : MonoBehaviour
+public class CharAnimContol : MonoBehaviour       //This script determines which running animation should be played depending which way he's going.
 {
     GameObject gameManager;
     PlayerManager pmManage;
@@ -29,10 +29,12 @@ public class CharAnimContol : MonoBehaviour
         if (isRunningLeft)
         {
             charAnim.SetBool("isRunningL", true);
+            charAnim.SetBool("isRunningR", false);
         }
         else if(isRunningRight)
         {
             charAnim.SetBool("isRunningR", true);
+            charAnim.SetBool("isRunningL", false);
         }
         else
         {

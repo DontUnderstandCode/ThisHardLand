@@ -20,15 +20,19 @@ public class FollowPlayer : MonoBehaviour  //THis script takes the y and Z (look
 
         charCoord = pmManage.charCoord;
         float coordY = charCoord.y - 1;
-        float coordZ = charCoord.z;
+        float coordZ = charCoord.z;           
         Vector3 followCoord = new Vector3();
-        followCoord.Set(0, coordY, coordZ);
+        followCoord.Set(0, coordY, coordZ);  //Takes the coordinates of the player and adjusts so that it uses the y and z components but the x remains 0. Thus following the player in 
+                                             //The look at plane.
+
+ 
 
 
 
 
 
-        transform.position = followCoord;
+        transform.position = Vector3.MoveTowards(transform.position, followCoord, 3*Time.deltaTime); //Makes the camera parent object track the player position. //
+                                                                                         //Uses the "MoveTowards" function for a smoothing effect.
 
   
     }

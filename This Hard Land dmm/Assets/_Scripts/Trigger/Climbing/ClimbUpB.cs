@@ -108,7 +108,6 @@ public class ClimbUpB : MonoBehaviour
             if(doClimbUp)
             {
                 PLRClimb();     //if all checks successful then do the climb
-                print (doClimbUp);
             }
 
                 

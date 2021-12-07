@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleMove1 : MonoBehaviour   //THis script moves the fisrt obstalce and rotates the water collider when the obstacle is clicked
 {
+    GameObject WParent1;
 
     GameObject gameManager;
     ObstacleManager obManage; //obManage is the obstalce manager script that stores the states of the obstacles 

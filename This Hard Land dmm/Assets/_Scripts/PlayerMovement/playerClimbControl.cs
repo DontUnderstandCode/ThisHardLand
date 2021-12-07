@@ -20,8 +20,6 @@ public class playerClimbControl : MonoBehaviour      //This script contains meth
 
         player = GameObject.Find("Player");
         lrMove = player.GetComponent<LeftRightMove>();
-
-
     }
 
     void UpdateClimbBool()
@@ -29,20 +27,22 @@ public class playerClimbControl : MonoBehaviour      //This script contains meth
         pmManage.doClimbUp = true;
     }
 
+ 
+
     void UpdateLeftRightEnable()
     {
-        lrMove.enabled = true;      
-
-
+        pmManage.isRunningRight = false;
+        pmManage.isRunningLeft = false;
+        lrMove.enabled = true;
+        lrMove.distance = 0;
+        lrMove.distZ = 0;
     }
+
 
     void UpdateClimbDownBool()
     {
         pmManage.doClimbDown = true;
     }
-
-
-
 }
 
 

@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour              //This script is used as
     public bool isRunningRight;   //Are true or false when the character is running in the respective direction
 
 
+
 //////////////////////////////////////-Below are bool switches related to the character climbing sequence
     public bool doClimbUp;         //Up
 

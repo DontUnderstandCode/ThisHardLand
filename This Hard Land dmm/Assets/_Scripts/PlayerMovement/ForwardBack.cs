@@ -43,17 +43,21 @@ public class ForwardBack : MonoBehaviour   //This script organises and starts th
     void Update()
     {
 
-        posMinus = pmManage.posMinus;
+        posMinus = pmManage.posMinus;       //This variable stores what side (A or B) the player is on.
 
         canFordsBack = pmManage.canFordsBack;
         if(Input.GetKeyDown(KeyCode.W))
         {
+            pmManage.isRunningLeft = false;
+            pmManage.isRunningRight = false;
+     
 
             lrMove.enabled = false;   // stops the player from moving left or right when moving forward or back, turned back on using an animation event on the player top level parent object
+            
             if (posMinus)
             {
-                charAnim.SetTrigger("crossSideA");
-                globalAnim.SetTrigger("playerCrossA");
+                charAnim.SetTrigger("crossSideA");       //This first animation is the model animation that makes him look like hes running
+                globalAnim.SetTrigger("playerCrossA");   //This animation moves the tope levle player parent object forwards and back.
 
             }
             else if(!posMinus)
@@ -68,6 +72,9 @@ public class ForwardBack : MonoBehaviour   //This script organises and starts th
 
     void LRBackOn()
     {
-        lrMove.enabled = true;          //Triggered by an animation event. Allows the palyer to move left and right again.
+        lrMove.enabled = true;          //Triggered by an animation event. Allows the palyer to move left and right again once they reach the other side.
+        lrMove.distance = 0;
+        lrMove.distZ = 0;  //Resets the ditance measurement in the left/right movement script so tha tthe player starts moving in the proper way.
+
     }
 }

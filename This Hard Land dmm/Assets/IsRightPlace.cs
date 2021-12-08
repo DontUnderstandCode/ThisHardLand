@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class IsRightPlace : MonoBehaviour
 {
-    GameObject obParent;
+    GameObject waterColl;
 
     string obName;
 
+
     void OnTriggerEnter(Collider obColl)
     {
-        obName = obColl.gameObject.name;
-        obParent = GameObject.Find(obName);
-        print(obParent.name);
+        obName = transform.name;
+        print(obName);
+        waterColl = GameObject.Find(obName);
     }   
 }

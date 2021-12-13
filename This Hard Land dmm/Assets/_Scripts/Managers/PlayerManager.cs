@@ -29,6 +29,6 @@ public class PlayerManager : MonoBehaviour              //This script is used as
     public bool doClimbUp;         //Up
 
 
-    public bool shouldClimbDown;      //Down
-    public bool doClimbDown;
+
+    public bool doClimbDown;   //Down
 }

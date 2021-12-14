@@ -10,4 +10,13 @@ public class ObstacleManager : MonoBehaviour //This script is similar to the pla
     public bool s1ob2;
 
 
+
+    
+    public bool s2ob1;
+    public bool s2ob2;
+
+    public bool s3ob1;
+    public bool s3ob2;
+
+
 }

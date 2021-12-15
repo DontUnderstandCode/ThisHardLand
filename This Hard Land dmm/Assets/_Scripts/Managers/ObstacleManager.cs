@@ -17,6 +17,11 @@ public class ObstacleManager : MonoBehaviour //This script is similar to the pla
 
     public bool s3ob1;
     public bool s3ob2;
+    public bool s3ob3;
+
+    public bool sec1;
+    public bool sec2;
+    public bool sec3;
 
 
 }

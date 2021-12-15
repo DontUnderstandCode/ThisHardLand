@@ -42,7 +42,6 @@ public class WaterObstacleMover : MonoBehaviour  //This script is respnsible for
         {
             obstacleName = gameObject.name;      //Gets the name of the collider this script is atatched to
             isRitePlace = true;              //switches state to true if the player is in front of the obstacle
-
         }
 
     }
@@ -73,19 +72,21 @@ public class WaterObstacleMover : MonoBehaviour  //This script is respnsible for
         posMinus = pmManage.posMinus;    //Gets the side of the board the characte is on
         
        
-        obManage.obstacleName = obstacleName; //Sends it to the manager script. This used to determine what animation state to run when the button is 
+        obManage.obstacleName = obstacleName; //Sends the object name to the manager script. This used to determine what animation state to run when the button is 
                                               //pressed while only requireing one script and one animator controler to operate all the obstacles
-        if (posMinus)
+
+        if (obstacleName == "Section3Ob3")      //First checks if the player is at t he last obstacle which requires a different animation
         {
-            charAnim.SetTrigger("pushSideA");   //Start the correct animation depending what side of the board the player is on
-        }
+            charAnim.SetTrigger("pushSpecial");    
+        }                                      
+        else if (posMinus)
+        {
+            charAnim.SetTrigger("pushSideA");   //Start the correct animation depending what side of the board the player is on, assuming hes not at the last obstacle
+        }                                      
         else if (!posMinus)
         {
             charAnim.SetTrigger("pushSideB");
         }
-        else if (gameObject.name == "Section3Ob3")
-        {
-            charAnim.SetTrigger("pushSpecial");    //This only happens when the player collides with the last obstacle
-        }
+  
     }
 }

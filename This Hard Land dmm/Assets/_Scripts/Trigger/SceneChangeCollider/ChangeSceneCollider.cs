@@ -35,7 +35,6 @@ public class ChangeSceneCollider : MonoBehaviour  //This script detects a trigge
         Scene activeScene = SceneManager.GetActiveScene();
         actvSceneName = activeScene.name;
 
-
         StartFadeAnim();   
 
     }

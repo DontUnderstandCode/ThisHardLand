@@ -15,7 +15,8 @@ public class CharacterObstacleInteraction : MonoBehaviour  //This script contain
     LeftRightMove lrMove;
 
     GameObject waterObstacle;
-    Animator obstacleAnim;      //Creating space for the obstacle and its associated animator
+    Animator obstacleAnim;      //Creating space for the obstacle and its associated animator and audi source
+    AudioSource obstacleSound;
 
     private void Start()
     {
@@ -28,7 +29,9 @@ public class CharacterObstacleInteraction : MonoBehaviour  //This script contain
         obstacleName = obManage.obstacleName;              //Pulls obstaclename from the obstacle manager script
         waterObstacle = GameObject.Find(obstacleName);         
         obstacleAnim = waterObstacle.GetComponent<Animator>();   //USes the ob name to refer to the correct GameObject and Animator
+        obstacleSound = waterObstacle.GetComponent<AudioSource>();  //Gets the audio source also
         obstacleAnim.SetTrigger(obstacleName);             //Sets a trigger which is the same as the objects name
+        obstacleSound.Play(0);
     }
 
 }

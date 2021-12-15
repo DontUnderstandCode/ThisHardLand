@@ -5,12 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class StartSceneUI : MonoBehaviour   //This script holds the method that loads the main puzzle scene on reaching the end of the scene
 {
+    GameObject fadeUI;
+    Animator fadeUIAnim;
 
-
-    public void LoadMain()
+    public void LoadScene()
     {
-        SceneManager.LoadScene("002IntroScene", LoadSceneMode.Single);
+    SceneManager.LoadScene("002IntroScene", LoadSceneMode.Single);
     }
+
+    public void StartGame()
+    {
+        fadeUIAnim.SetTrigger("fadeClose");
+    }
+
+    public void QuitGame()
+    {
+        fadeUIAnim.SetTrigger("fadeQuit");
+    }
+
+
+    //public void Application
 
 
 }

@@ -110,6 +110,7 @@ public class WaterParticleControl : MonoBehaviour  //This script contains method
             waterPart2.Play();
             waterPart3.Play();
             waterPart4.Play();
+            obManage.puzzleComplete = true;  //When all water states are active, the puzzle is solved
         }
         else if (sec1 && sec2)
         {
@@ -126,23 +127,26 @@ public class WaterParticleControl : MonoBehaviour  //This script contains method
 
     ////////////////////////////////////////////////////////////////////////////
 
-    
+
     void StopSection2()   //This is used for objects in the first "Section"   The reason they use different functions is because of the logic of how water flows
     {                         //If the top object is turned, all the water flow below it must stop
         waterPart2.Stop();
         waterPart3.Stop();
-        waterPart4.Stop();   
+        waterPart4.Stop();
+        obManage.puzzleComplete = false; //If any particle system turns off, the puzzle is not solved.
     }
 
     void StopSection3()     //This is used for objects in the second "Section" 
     {
         waterPart3.Stop();
         waterPart4.Stop();
+        obManage.puzzleComplete = false;
     }
 
     void StopSection4()
     {
         waterPart4.Stop();
+        obManage.puzzleComplete = false;
     }
 
 

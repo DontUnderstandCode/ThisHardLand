@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("003TestScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("001MenuScene", LoadSceneMode.Additive);
     }
 
     // Update is called once per frame

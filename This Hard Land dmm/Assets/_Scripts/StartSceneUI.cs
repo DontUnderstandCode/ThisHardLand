@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartSceneUI : MonoBehaviour
+public class StartSceneUI : MonoBehaviour   //This script holds the method that loads the main puzzle scene on reaching the end of the scene
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     public void LoadMain()
     {
-        SceneManager.LoadScene("003TestScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("002IntroScene", LoadSceneMode.Single);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

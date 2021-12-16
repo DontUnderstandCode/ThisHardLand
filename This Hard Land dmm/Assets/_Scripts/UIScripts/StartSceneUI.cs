@@ -14,12 +14,22 @@ public class StartSceneUI : MonoBehaviour   //This script holds methods related 
         menuFadeAnim = menuFade.GetComponent<Animator>();
     }
 
-    public void LoadScene()
+    public void LoadScene()     //Called by an animation event, checks current scene and moves to the correct scene depending 
     {
-    SceneManager.LoadScene("002IntroScene", LoadSceneMode.Single);
+        Scene activeScene = SceneManager.GetActiveScene();
+        string actvSceneName = activeScene.name;
+
+        if (actvSceneName == "001MenuScene")
+        {
+            SceneManager.LoadScene("002IntroScene", LoadSceneMode.Single);
+        }
+        else
+        {
+            SceneManager.LoadScene("001MenuScene", LoadSceneMode.Single);
+        }
     }
 
-    public void StartGame()
+    public void MoveScene()
     {
         menuFadeAnim.SetTrigger("menuFadeClose");
     }

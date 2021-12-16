@@ -48,6 +48,7 @@ public class ForwardBack : MonoBehaviour   //This script organises and starts th
             if(canFordsBack)
             {
                 RunForwardBack();   //Move player forawards and backwards when button pressed
+                pmManage.canFordsBack = false;   //Disables this so that the player can't do this twice accidentally, avoids breaks or bugginess
             }
         }
         
@@ -76,11 +77,11 @@ public class ForwardBack : MonoBehaviour   //This script organises and starts th
             }
     }
 
-    void LRBackOn()
+    void MovementBackOn()                 //Triggered by animation even to reenable movement once the player reaches the other side.
     {
-        lrMove.enabled = true;          //Triggered by an animation event. Allows the palyer to move left and right again once they reach the other side.
+        lrMove.enabled = true;          //Allows the palyer to move left and right again
         lrMove.distance = 0;
         lrMove.distZ = 0;  //Resets the ditance measurement in the left/right movement script so tha tthe player starts moving in the proper way.
-
+        pmManage.canFordsBack = true;   //Reenables the ability to move forwards and back once the sequence is complete
     }
 }

@@ -96,7 +96,7 @@ public class ClimbUpB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.W))
         {
             PLRStartClimb();                    //When space is pressed start the check and if successful, the sequence
         }

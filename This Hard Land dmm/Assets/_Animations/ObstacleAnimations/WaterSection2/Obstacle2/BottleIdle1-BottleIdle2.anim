@@ -475,7 +475,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.93333334
-    functionName: Section1Obstacle2True
+    functionName: Section2Obstacle2True
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

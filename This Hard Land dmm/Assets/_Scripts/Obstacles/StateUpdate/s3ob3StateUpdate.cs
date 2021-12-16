@@ -14,12 +14,12 @@ public class s3ob3StateUpdate : MonoBehaviour
         obManage = gameManager.GetComponent<ObstacleManager>();
     }
 
-    void Section1Obstacle1True()
+    void Section3Obstacle3True()
     {
         obManage.s3ob3 = true;   //S refers to section, ob refers to obstacle
     }
 
-    void Section1Obstalce1False()
+    void Section3Obstalce3False()
     {
         obManage.s3ob3 = false;
     }

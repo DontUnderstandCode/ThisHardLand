@@ -94,7 +94,7 @@ public class ClimbDownB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-           if(Input.GetKeyDown(KeyCode.Space))
+           if(Input.GetKeyDown(KeyCode.W))
         {
             PLRStartClimbDown();                    //When space is pressed start the check and if successful, the sequence
         }

@@ -612,7 +612,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.9166667
-    functionName: Section1Obstalce2False
+    functionName: Section2Obstalce1False
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

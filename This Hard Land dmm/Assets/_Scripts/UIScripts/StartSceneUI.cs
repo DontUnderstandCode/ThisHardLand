@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartSceneUI : MonoBehaviour   //This script holds the method that loads the main puzzle scene on reaching the end of the scene
+public class StartSceneUI : MonoBehaviour   //This script holds methods related to starting and quitting the game from the main menu UI
 {
-    GameObject fadeUI;
-    Animator fadeUIAnim;
+    GameObject menuFade;
+    Animator menuFadeAnim;
+
+    private void Start()
+    {
+        menuFade = GameObject.Find("MenuSceneFade");
+        menuFadeAnim = menuFade.GetComponent<Animator>();
+    }
 
     public void LoadScene()
     {
@@ -15,13 +21,22 @@ public class StartSceneUI : MonoBehaviour   //This script holds the method that 
 
     public void StartGame()
     {
-        fadeUIAnim.SetTrigger("fadeClose");
+        menuFadeAnim.SetTrigger("menuFadeClose");
+    }
+
+    public void QuitGameFade()
+    {
+        menuFadeAnim.SetTrigger("fadeQuit");
     }
 
     public void QuitGame()
     {
-        fadeUIAnim.SetTrigger("fadeQuit");
+        Application.Quit();
     }
+
+
+
+    
 
 
     //public void Application

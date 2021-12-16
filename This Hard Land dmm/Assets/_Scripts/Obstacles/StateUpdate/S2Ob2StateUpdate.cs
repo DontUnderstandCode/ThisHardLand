@@ -15,12 +15,12 @@ public class S2Ob2StateUpdate : MonoBehaviour
         obManage = gameManager.GetComponent<ObstacleManager>();
     }
 
-    void Section1Obstacle2True()
+    void Section2Obstacle2True()
     {
         obManage.s2ob2 = true;   //S refers to section, ob refers to obstacle
     }
 
-    void Section1Obstalce2False()
+    void Section2Obstalce2False()
     {
         obManage.s2ob2 = false;
     }
